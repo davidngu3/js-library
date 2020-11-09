@@ -1,9 +1,5 @@
 let myLibrary = [];
 
-// elements
-
-
-
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -21,6 +17,9 @@ function addBookToLibrary(book) {
 }
 
 function displayBooks() {
+    let cardContainer = document.getElementById("card-container");
+    cardContainer.innerHTML = ""; // clear cards
+
     myLibrary.forEach(book => {
         let bookTitle = document.createElement("h2");
         bookTitle.innerText = book.title;
@@ -32,12 +31,11 @@ function displayBooks() {
         bookRead.innerText = book.read ? "Read" : "Not Read";
 
         let bookCard = document.createElement("div");
-        bookCard.appendChild(bookTitle)
-        bookCard.appendChild(bookAuthor)
-        bookCard.appendChild(bookPages)
-        bookCard.appendChild(bookRead)
-
-        let cardContainer = document.getElementById("card-container");
+        bookCard.appendChild(bookTitle);
+        bookCard.appendChild(bookAuthor);
+        bookCard.appendChild(bookPages);
+        bookCard.appendChild(bookRead);
+        
         cardContainer.appendChild(bookCard);
     })
 }
@@ -54,4 +52,20 @@ addBookToLibrary(minecraft);
 
 document.addEventListener('DOMContentLoaded', function() {
     displayBooks();
+
+    let addBookBtn = document.getElementById("addBookBtn");
+    addBookBtn.addEventListener('click', function() {
+        let newBookTitle = document.getElementById("formTitle").value;
+        let newBookAuthor = document.getElementById("formAuthor").value;
+        let newBookPages = document.getElementById("formPages").value;
+
+        let newBookRead = document.getElementById("formRead");
+        let newBookNotRead = document.getElementById("formNotRead");
+        let readBool = newBookRead.checked ? true : newBookNotRead ? false : null;
+
+        let newBook = new Book(newBookTitle, newBookAuthor, newBookPages, readBool);
+        addBookToLibrary(newBook);
+        displayBooks();
+    });
+
 });

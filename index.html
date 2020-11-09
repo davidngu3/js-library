@@ -3,4 +3,31 @@
 </head>
 <body>
     <div id="card-container"></div>
+
+    <div id="form-container">
+        <form id="newBookForm">
+            <label for="formAuthor">
+                Author: <input type="text" id="formAuthor"><br>
+            </label>
+
+            <label for="formTitle">
+                Title: <input type="text" id="formTitle"><br>
+            </label>
+
+            <label for="formPages">
+                Pages: <input type="number" id="formPages"><br>
+            </label>
+
+            <label for="formRead">
+                <input name="read" type="radio" id="formRead"> Read
+            </label> 
+
+            <label for="formNotRead">
+                <input name="read" type="radio" id="formNotRead"> Not Read
+            </label>
+
+            <br>
+            <button type="button" id="addBookBtn">Add Book</button>
+        </form>
+    </div>  
 </body>
