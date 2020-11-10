@@ -12,6 +12,10 @@ Book.prototype.info = function() {
         return `${title} by ${author}, ${pages} pages, ${readString}`;
 }
 
+Book.prototype.changeReadStatus = function() {
+    this.read = !this.read; // invert read status
+}
+
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
@@ -31,11 +35,16 @@ function displayBooks() {
         bookRead.innerText = book.read ? "Read" : "Not Read";
 
         let deleteBtn = document.createElement("button");
-        deleteBtn.className = "deleteBtn";
         deleteBtn.innerHTML = "Remove";
-        
         deleteBtn.addEventListener('click', function() {
             myLibrary.splice(idx, 1);
+            displayBooks();
+        });
+
+        let readBtn = document.createElement("button");
+        readBtn.innerHTML = "Read/Unread";
+        readBtn.addEventListener('click', function() {
+            book.changeReadStatus();
             displayBooks();
         });
 
@@ -45,7 +54,8 @@ function displayBooks() {
         bookCard.appendChild(bookPages);
         bookCard.appendChild(bookRead);
         bookCard.appendChild(deleteBtn);
-        
+        bookCard.appendChild(readBtn);
+
         cardContainer.appendChild(bookCard);
     })
 }
