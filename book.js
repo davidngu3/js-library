@@ -20,7 +20,7 @@ function displayBooks() {
     let cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = ""; // clear cards
 
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book, idx) => {
         let bookTitle = document.createElement("h2");
         bookTitle.innerText = book.title;
         let bookAuthor = document.createElement("h3");
@@ -30,11 +30,21 @@ function displayBooks() {
         let bookRead = document.createElement("p");
         bookRead.innerText = book.read ? "Read" : "Not Read";
 
+        let deleteBtn = document.createElement("button");
+        deleteBtn.className = "deleteBtn";
+        deleteBtn.innerHTML = "Remove";
+        
+        deleteBtn.addEventListener('click', function() {
+            myLibrary.splice(idx, 1);
+            displayBooks();
+        });
+
         let bookCard = document.createElement("div");
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPages);
         bookCard.appendChild(bookRead);
+        bookCard.appendChild(deleteBtn);
         
         cardContainer.appendChild(bookCard);
     })
