@@ -1,8 +1,9 @@
 <head>
     <script src="book.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="card-container"></div>
+    <h1 id="main-title">js.lib</h1>
 
     <div id="form-container">
         <form id="newBookForm">
@@ -17,17 +18,22 @@
             <label for="formPages">
                 Pages: <input type="number" id="formPages"><br>
             </label>
+            
+            <div id=readButtons>
+                <label for="formRead">
+                    <input name="read" type="radio" id="formRead"> Read
+                </label> 
 
-            <label for="formRead">
-                <input name="read" type="radio" id="formRead"> Read
-            </label> 
+                <label for="formNotRead">
+                    <input name="read" type="radio" id="formNotRead"> Not Read
+                </label>
+            </div>
 
-            <label for="formNotRead">
-                <input name="read" type="radio" id="formNotRead"> Not Read
-            </label>
-
-            <br>
             <button type="button" id="addBookBtn">Add Book</button>
         </form>
     </div>  
+
+    <div id="card-container"></div>
+
+    
 </body>

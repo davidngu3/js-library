@@ -27,19 +27,12 @@ function displayBooks() {
     myLibrary.forEach((book, idx) => {
         let bookTitle = document.createElement("h2");
         bookTitle.innerText = book.title;
-        let bookAuthor = document.createElement("h3");
+        let bookAuthor = document.createElement("h2");
         bookAuthor.innerText = book.author;
         let bookPages = document.createElement("p");
-        bookPages.innerText = book.pages;
+        bookPages.innerText = `${book.pages} Pages`;
         let bookRead = document.createElement("p");
         bookRead.innerText = book.read ? "Read" : "Not Read";
-
-        let deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = "Remove";
-        deleteBtn.addEventListener('click', function() {
-            myLibrary.splice(idx, 1);
-            displayBooks();
-        });
 
         let readBtn = document.createElement("button");
         readBtn.innerHTML = "Read/Unread";
@@ -48,13 +41,21 @@ function displayBooks() {
             displayBooks();
         });
 
+        let deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = "X";
+        deleteBtn.addEventListener('click', function() {
+            myLibrary.splice(idx, 1);
+            displayBooks();
+        });
+
         let bookCard = document.createElement("div");
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPages);
         bookCard.appendChild(bookRead);
-        bookCard.appendChild(deleteBtn);
         bookCard.appendChild(readBtn);
+        bookCard.appendChild(deleteBtn);
+        bookCard.className = "card";
 
         cardContainer.appendChild(bookCard);
     })
