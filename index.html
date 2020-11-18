@@ -11,28 +11,28 @@
     <div id="form-container">
         <form id="newBookForm">
             <label for="formAuthor">
-                Author: <input type="text" id="formAuthor"><br>
+                Author: <input class="form-control" type="text" id="formAuthor" placeholder="Author" required><br>
             </label>
 
             <label for="formTitle">
-                Title: <input type="text" id="formTitle"><br>
+                Title: <input class="form-control" type="text" id="formTitle" placeholder="Book Title" required><br>
             </label>
 
             <label for="formPages">
-                Pages: <input type="number" id="formPages"><br>
+                Pages: <input class="form-control" type="number" id="formPages" placeholder="Number of Pages" required><br>
             </label>
             
-            <div id=readButtons>
-                <label for="formRead">
-                    <input name="read" type="radio" id="formRead"> Read
+            <div class="form-check form-check-inline" id="readButtons">
+                <label for="formRead" class="btn btn-secondary">
+                    <input name="read" type="radio" id="formRead" autocomplete="off" /> Read
                 </label> 
 
-                <label for="formNotRead">
-                    <input name="read" type="radio" id="formNotRead"> Not Read
+                <label for="formNotRead" class="btn btn-secondary">
+                    <input name="read" type="radio" id="formNotRead" autocomplete="off" /> Not Read
                 </label>
             </div>
 
-            <button type="button" id="addBookBtn">Add Book</button>
+            <button type="button" class="btn btn-primary" id="addBookBtn">Add Book</button>
         </form>
     </div>  
 

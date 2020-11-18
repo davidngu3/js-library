@@ -36,6 +36,7 @@ function displayBooks() {
 
         let readBtn = document.createElement("button");
         readBtn.innerHTML = "Read/Unread";
+        readBtn.className = "btn btn-secondary";
         readBtn.addEventListener('click', function() {
             book.changeReadStatus();
             displayBooks();
@@ -43,6 +44,7 @@ function displayBooks() {
 
         let deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "X";
+        deleteBtn.className = "btn btn-danger";
         deleteBtn.addEventListener('click', function() {
             myLibrary.splice(idx, 1);
             displayBooks();
