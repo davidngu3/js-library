@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -31,6 +32,10 @@ body {
     align-items: center;
     background: lavender;
     padding: 0.5vw;
+}
+
+.card h2 {
+    font-size: 1em;
 }
 
 .card * {
